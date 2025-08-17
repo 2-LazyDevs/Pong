@@ -1,2 +1,2 @@
-# LICENSE
-The official 2LD OSL (2LazyDevs Open Source License). This is the license which we use in all of the software that we've made opensource.
+# Pong
+A simple pong like game which utilizes HTML, CSS & JS. You are competing against an AI (Right side of the screen). You have to use your mouse to move your block up & down. Licensed under the 2LD OSL.
