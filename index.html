@@ -2,11 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pong</title>
+  <title>Pong - Made from scratch - Uses pure web tech, no engines, nothing</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="pong" width="800" height="500"></canvas>
+  <div class="main-ui">
+    <h1>PONG</h1>
+    <canvas id="pong"></canvas>
+    <!-- Scoreboard and round display -->
+    <div id="scoreboard">
+      <div class="player left">
+        <span id="leftScore">0</span><br>
+        <small>Player wins</small>
+      </div>
+      <div class="round">
+        <span id="roundInfo">Round 1 / 3</span>
+      </div>
+      <div class="player right">
+        <span id="rightScore">0</span><br>
+        <small>CPU wins</small>
+      </div>
+    </div>
+    <!-- Menu Buttons -->
+    <div id="menu">
+      <button id="btnStart">Start Game</button>
+      <button id="btn2P">2 Player</button>
+      <button id="btnSettings">Settings</button>
+      <button id="btnLeaderboard">Leaderboard</button>
+      <button id="btnHelp">Help</button>
+    </div>
+    <!-- Pause/Resume Overlay -->
+    <div id="pauseOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>Paused</h2>
+        <button id="btnResume">Resume</button>
+        <button id="btnRestart">Restart</button>
+        <button id="btnQuit">Quit</button>
+      </div>
+    </div>
+    <!-- Settings Overlay -->
+    <div id="settingsOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>Settings</h2>
+        <label>Paddle Color: <input type="color" id="paddleColor" value="#32e6e6"></label><br>
+        <label>Opponent Paddle Color: <input type="color" id="cpuColor" value="#ff5555"></label><br>
+        <label>Ball Color: <input type="color" id="ballColor" value="#ffffff"></label><br>
+        <label>Background: 
+          <select id="bgSelect">
+            <option value="#111">Dark</option>
+            <option value="#2c2b36">Indigo</option>
+            <option value="#222831">Gray Blue</option>
+            <option value="#1a1a1a">Classic Black</option>
+          </select>
+        </label><br>
+        <label>Sound: <input type="checkbox" id="soundToggle" checked></label><br>
+        <label>Music: <input type="checkbox" id="musicToggle" checked></label><br>
+        <label>AI Difficulty:
+          <select id="aiSelect">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label><br>
+        <button id="btnCloseSettings">Close</button>
+      </div>
+    </div>
+    <!-- Leaderboard Overlay -->
+    <div id="leaderboardOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>Leaderboard</h2>
+        <ol id="leaderboardList"></ol>
+        <button id="btnResetBoard">Reset Leaderboard</button>
+        <button id="btnCloseBoard">Close</button>
+      </div>
+    </div>
+    <!-- Help Overlay -->
+    <div id="helpOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>How to Play</h2>
+        <ul>
+          <li>Move your paddle with the mouse (or W/S keys in 2 Player mode).</li>
+          <li>First to 5 points wins a round. Win 3 rounds to win the match.</li>
+          <li>Catch power-ups for special effects!</li>
+          <li>Press ESC to pause, F to toggle fullscreen.</li>
+          <li>Keyboard: 1/2/3 for AI difficulty, M for music, S for sound.</li>
+        </ul>
+        <button id="btnCloseHelp">Close</button>
+      </div>
+    </div>
+    <!-- Achievement Toast -->
+    <div id="achievementToast" class="toast hidden"></div>
+  </div>
   <script src="pong.js"></script>
 </body>
 </html>
